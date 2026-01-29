@@ -82,16 +82,16 @@ export default function Contact() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24">
         <div className="container">
-          <div className="contact-hero max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center contact-hero">
             <span className="text-accent text-sm uppercase tracking-widest">
               Get In Touch
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif mt-4 mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif mt-4 mb-6 text-balance">
               Let&apos;s Work Together
             </h1>
-            <p className="text-xl text-secondary max-w-2xl">
+            <p className="text-lg md:text-xl text-secondary max-w-3xl mx-auto leading-relaxed">
               Have a project in mind? I&apos;d love to hear about it. Fill out the form below or reach out directly—let&apos;s create something extraordinary.
             </p>
           </div>
@@ -99,20 +99,20 @@ export default function Contact() {
       </section>
 
       {/* Contact Section */}
-      <section className="pb-24 md:pb-32">
+      <section className="pb-24 md:pb-32 lg:pb-40">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
             {/* Form */}
             <div className="contact-form-container">
-              <h2 className="text-2xl font-serif mb-8">Send a Message</h2>
+              <h2 className="text-2xl md:text-3xl font-serif mb-8">Send a Message</h2>
               <ContactForm />
             </div>
 
             {/* Info */}
-            <div className="contact-info-container">
-              <h2 className="text-2xl font-serif mb-8">Contact Info</h2>
+            <div className="contact-info-container flex flex-col gap-12">
+              <h2 className="text-2xl md:text-3xl font-serif mb-8">Contact Info</h2>
 
-              <div className="space-y-6 mb-12">
+              <div className="flex flex-col gap-6">
                 {contactInfo.map((info) => {
                   const Icon = info.icon;
                   const content = (
@@ -144,8 +144,8 @@ export default function Contact() {
               </div>
 
               {/* Social Links */}
-              <div>
-                <h3 className="text-sm text-secondary uppercase tracking-wider mb-4">
+              <div className="flex flex-col gap-4">
+                <h3 className="text-sm text-secondary uppercase tracking-wider">
                   Follow Me
                 </h3>
                 <div className="flex gap-3">
@@ -168,14 +168,14 @@ export default function Contact() {
               </div>
 
               {/* Availability */}
-              <div className="mt-12 p-6 border border-border bg-muted/30">
+              <div className="p-6 border border-border bg-muted/30">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                   <span className="text-sm uppercase tracking-wider">
                     Currently Available
                   </span>
                 </div>
-                <p className="text-secondary">
+                <p className="text-base md:text-lg text-secondary leading-relaxed">
                   I&apos;m currently accepting new projects for Q1 2025. Let&apos;s discuss your vision.
                 </p>
               </div>

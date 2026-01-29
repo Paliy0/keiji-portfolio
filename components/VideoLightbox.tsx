@@ -54,7 +54,7 @@ export default function VideoLightbox({ project, onClose }: VideoLightboxProps) 
   const embedUrl = useMemo(() => {
     if (!project?.videoUrl) return null;
     return getVideoEmbedUrl(project.videoUrl);
-  }, [project?.videoUrl]);
+  }, [project]);
 
   if (!project) return null;
 

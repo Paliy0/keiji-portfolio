@@ -51,12 +51,12 @@ export default function Hero({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container text-center">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-tight">
+      <div className="relative z-10 container flex items-center justify-center">
+        <div className="max-w-4xl text-center space-y-8">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-tight text-balance">
             {title}
           </h1>
-          <p className="text-lg md:text-xl text-secondary max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
             {subtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

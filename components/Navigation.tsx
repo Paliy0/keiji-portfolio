@@ -49,19 +49,19 @@ export default function Navigation() {
         <nav className="container flex items-center justify-between">
           <Link
             href="/"
-            className="text-xl font-serif tracking-wider hover:text-accent transition-colors"
+            className="text-lg md:text-xl font-serif tracking-wider hover:text-accent transition-colors"
             onClick={closeMenu}
           >
             KEIJI
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center justify-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`text-sm uppercase tracking-widest transition-colors hover:text-accent ${
+                  className={`text-xs md:text-sm uppercase tracking-widest transition-colors hover:text-accent ${
                     pathname === link.href ? 'text-accent' : 'text-secondary'
                   }`}
                 >

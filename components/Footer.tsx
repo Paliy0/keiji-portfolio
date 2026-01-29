@@ -21,23 +21,23 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30">
       <div className="container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="flex flex-col gap-4">
             <Link href="/" className="text-2xl font-serif tracking-wider">
               KEIJI
             </Link>
-            <p className="text-secondary text-sm max-w-xs">
+            <p className="text-secondary text-sm max-w-xs leading-relaxed">
               Filmmaker & Visual Storyteller based in Los Angeles. Creating cinematic experiences that move people.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          <div className="flex flex-col gap-4">
             <h4 className="text-sm uppercase tracking-widest text-secondary">
               Navigation
             </h4>
-            <ul className="space-y-2">
+            <ul className="flex flex-col gap-2">
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           {/* Contact & Social */}
-          <div className="space-y-4">
+          <div className="flex flex-col gap-4">
             <h4 className="text-sm uppercase tracking-widest text-secondary">
               Connect
             </h4>

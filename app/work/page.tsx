@@ -157,16 +157,16 @@ export default function Work() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 lg:pt-48 lg:pb-24">
         <div className="container">
-          <div className="work-hero max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center work-hero">
             <span className="text-accent text-sm uppercase tracking-widest">
               Portfolio
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif mt-4 mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif mt-4 mb-6 text-balance">
               Selected Work
             </h1>
-            <p className="text-xl text-secondary max-w-2xl">
+            <p className="text-lg md:text-xl text-secondary max-w-3xl mx-auto leading-relaxed">
               A curated collection of projects that showcase my approach to visual storytelling across different genres and formats.
             </p>
           </div>
@@ -176,7 +176,7 @@ export default function Work() {
       {/* Filter Section */}
       <section className="pb-12">
         <div className="container">
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <button
                 key={category}
@@ -195,11 +195,11 @@ export default function Work() {
       </section>
 
       {/* Projects Grid */}
-      <section className="pb-24 md:pb-32">
+      <section className="pb-24 md:pb-32 lg:pb-40">
         <div className="container">
           <div
             ref={gridRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           >
             {filteredProjects.map((project) => (
               <ProjectCard

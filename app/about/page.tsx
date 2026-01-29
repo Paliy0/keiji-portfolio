@@ -129,16 +129,16 @@ export default function About() {
   return (
     <main>
       {/* Hero Section */}
-      <section ref={heroRef} className="pt-32 pb-20 md:pt-40 md:pb-28">
+      <section ref={heroRef} className="pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-32">
         <div className="container">
-          <div className="about-hero-content max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center about-hero-content">
             <span className="text-accent text-sm uppercase tracking-widest">
               About Me
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif mt-4 mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif mt-4 mb-6 text-balance">
               The Story Behind the Lens
             </h1>
-            <p className="text-xl text-secondary max-w-2xl">
+            <p className="text-lg md:text-xl text-secondary max-w-3xl mx-auto leading-relaxed">
               A passionate filmmaker dedicated to capturing moments that matter and creating visual experiences that leave lasting impressions.
             </p>
           </div>
@@ -146,14 +146,14 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <section ref={storyRef} className="py-20 md:py-28">
+      <section ref={storyRef} className="py-20 md:py-28 lg:py-32">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="story-content space-y-6">
-              <h2 className="text-3xl md:text-4xl font-serif">
+            <div className="story-content flex flex-col gap-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-balance">
                 Crafting Visual Narratives Since 2014
               </h2>
-              <div className="space-y-4 text-secondary">
+              <div className="flex flex-col gap-4 text-base md:text-lg text-secondary leading-relaxed">
                 <p>
                   My journey into filmmaking began with a borrowed camera and an insatiable curiosity about how stories could be told through moving images. What started as a hobby quickly became an obsession, leading me to study film at UCLA and eventually launch my career in Los Angeles.
                 </p>
@@ -164,7 +164,7 @@ export default function About() {
                   My approach is simple: listen deeply, collaborate openly, and never stop pushing creative boundaries. I believe that the best films come from genuine human connection and a willingness to take risks in pursuit of something beautiful.
                 </p>
               </div>
-              <Link href="/contact" className="btn-primary inline-block">
+              <Link href="/contact" className="btn-primary inline-block self-start">
                 Work With Me
               </Link>
             </div>
@@ -182,14 +182,14 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section ref={statsRef} className="py-20 md:py-28 bg-muted/30">
+      <section ref={statsRef} className="py-20 md:py-28 lg:py-32 bg-muted/30">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat) => {
               const Icon = stat.icon;
               return (
-                <div key={stat.label} className="stat-item text-center">
-                  <Icon className="w-8 h-8 text-accent mx-auto mb-4" />
+                <div key={stat.label} className="stat-item text-center flex flex-col items-center justify-center">
+                  <Icon className="w-8 h-8 text-accent mb-4" />
                   <div className="text-4xl md:text-5xl font-serif text-foreground mb-2">
                     {stat.value}
                   </div>
@@ -204,14 +204,14 @@ export default function About() {
       </section>
 
       {/* Skills Section */}
-      <section ref={skillsRef} className="py-20 md:py-28">
+      <section ref={skillsRef} className="py-20 md:py-28 lg:py-32">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <span className="text-accent text-sm uppercase tracking-widest">
                 Expertise
               </span>
-              <h2 className="text-3xl md:text-4xl font-serif mt-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mt-4 text-balance">
                 Skills & Capabilities
               </h2>
             </div>
@@ -231,13 +231,13 @@ export default function About() {
       </section>
 
       {/* Clients Section */}
-      <section className="py-20 md:py-28 bg-muted/30">
+      <section className="py-20 md:py-28 lg:py-32 bg-muted/30">
         <div className="container">
           <div className="text-center mb-12">
             <span className="text-accent text-sm uppercase tracking-widest">
               Trusted By
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif mt-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mt-4 text-balance">
               Brands I&apos;ve Worked With
             </h2>
           </div>
@@ -256,13 +256,13 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 lg:py-32">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-serif mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 text-balance">
               Ready to Tell Your Story?
             </h2>
-            <p className="text-lg text-secondary mb-8">
+            <p className="text-base md:text-lg lg:text-xl text-secondary leading-relaxed mb-8">
               I&apos;m always excited to take on new projects and collaborate with
               passionate people. Let&apos;s create something extraordinary together.
             </p>
