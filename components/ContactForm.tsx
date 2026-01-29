@@ -71,7 +71,7 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
-            className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:border-accent transition-colors"
+            className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors"
             placeholder="Your name"
           />
         </div>
@@ -84,7 +84,7 @@ export default function ContactForm() {
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:border-accent transition-colors"
+            className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors"
             placeholder="your@email.com"
           />
         </div>
@@ -97,7 +97,7 @@ export default function ContactForm() {
         <select
           id="project-type"
           name="project-type"
-          className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:border-accent transition-colors appearance-none cursor-pointer"
+          className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors appearance-none cursor-pointer"
         >
           <option value="">Select a project type</option>
           <option value="commercial">Commercial</option>
@@ -118,7 +118,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:border-accent transition-colors resize-none"
+          className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors resize-none"
           placeholder="Tell me about your project..."
         />
       </div>
