@@ -1,65 +1,247 @@
-import Image from "next/image";
+'use client';
+
+import { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { gsap } from 'gsap';
+import ProjectImage from '@/components/ProjectImage';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowRight, Film, Camera, Sparkles } from 'lucide-react';
+import Hero from '@/components/Hero';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const services = [
+  {
+    icon: Film,
+    title: 'Film Production',
+    description:
+      'From concept to final cut, I bring stories to life with cinematic precision and creative vision.',
+  },
+  {
+    icon: Camera,
+    title: 'Commercial Work',
+    description:
+      'Brand films and commercials that connect with audiences and elevate your message.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Music Videos',
+    description:
+      'Visual experiences that complement and amplify the emotion of your music.',
+  },
+];
+
+const featuredProjects = [
+  {
+    id: '1',
+    title: 'Midnight in Tokyo',
+    category: 'Short Film',
+    thumbnail: '/images/project-1.jpg',
+  },
+  {
+    id: '2',
+    title: 'Urban Pulse',
+    category: 'Music Video',
+    thumbnail: '/images/project-2.jpg',
+  },
+  {
+    id: '3',
+    title: 'Origins',
+    category: 'Documentary',
+    thumbnail: '/images/project-3.jpg',
+  },
+];
 
 export default function Home() {
+  const introRef = useRef<HTMLElement>(null);
+  const servicesRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Intro section animation
+      gsap.fromTo(
+        '.intro-text',
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: introRef.current,
+            start: 'top 80%',
+          },
+        }
+      );
+
+      // Services stagger animation
+      gsap.fromTo(
+        '.service-card',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: servicesRef.current,
+            start: 'top 80%',
+          },
+        }
+      );
+
+      // Projects stagger animation
+      gsap.fromTo(
+        '.project-item',
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: projectsRef.current,
+            start: 'top 80%',
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      <Hero />
+
+      {/* Intro Section */}
+      <section ref={introRef} className="py-24 md:py-32">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center intro-text">
+            <h2 className="text-3xl md:text-5xl font-serif mb-6">
+              Creating Visual Stories That Resonate
+            </h2>
+            <p className="text-lg text-secondary leading-relaxed mb-8">
+              I&apos;m Keiji, a filmmaker and visual storyteller with a passion for
+              crafting narratives that move people. With over a decade of
+              experience in film production, I&apos;ve had the privilege of bringing
+              countless stories to life—from intimate documentaries to
+              large-scale commercial productions.
+            </p>
+            <Link href="/about" className="btn-secondary inline-flex items-center gap-2">
+              Learn More About Me
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Services Section */}
+      <section ref={servicesRef} className="py-24 md:py-32 bg-muted/30">
+        <div className="container">
+          <div className="text-center mb-16">
+            <span className="text-accent text-sm uppercase tracking-widest">
+              What I Do
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif mt-4">
+              Services & Expertise
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={service.title}
+                  className="service-card p-8 border border-border bg-background hover:border-accent transition-colors duration-300"
+                >
+                  <Icon className="w-10 h-10 text-accent mb-6" />
+                  <h3 className="text-xl font-serif mb-4">{service.title}</h3>
+                  <p className="text-secondary">{service.description}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Featured Work Section */}
+      <section ref={projectsRef} className="py-24 md:py-32">
+        <div className="container">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
+            <div>
+              <span className="text-accent text-sm uppercase tracking-widest">
+                Featured Work
+              </span>
+              <h2 className="text-3xl md:text-4xl font-serif mt-4">
+                Selected Projects
+              </h2>
+            </div>
+            <Link
+              href="/work"
+              className="mt-6 md:mt-0 text-secondary hover:text-foreground transition-colors flex items-center gap-2"
+            >
+              View All Projects
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredProjects.map((project) => (
+              <Link
+                key={project.id}
+                href="/work"
+                className="project-item group relative aspect-[4/3] overflow-hidden bg-muted"
+              >
+                <ProjectImage
+                  src={project.thumbnail}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-background/0 group-hover:bg-background/60 transition-colors duration-300" />
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <div className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <span className="text-xs uppercase tracking-widest text-accent">
+                      {project.category}
+                    </span>
+                    <h3 className="text-xl font-serif mt-1">{project.title}</h3>
+                  </div>
+                </div>
+                {/* Mobile always visible */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/80 to-transparent md:hidden">
+                  <span className="text-xs uppercase tracking-widest text-accent">
+                    {project.category}
+                  </span>
+                  <h3 className="text-lg font-serif">{project.title}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 md:py-32 bg-muted/30">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-serif mb-6">
+              Let&apos;s Create Something Beautiful Together
+            </h2>
+            <p className="text-lg text-secondary mb-8">
+              Have a project in mind? I&apos;d love to hear about it. Let&apos;s discuss
+              how we can bring your vision to life.
+            </p>
+            <Link href="/contact" className="btn-primary">
+              Get In Touch
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
