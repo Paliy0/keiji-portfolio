@@ -32,6 +32,17 @@ function PlaceholderThumbnail({ title }: { title: string }) {
 export default function ProjectCard({ project, onPlay }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
+
+  // Handle touch events for mobile
+  const handleTouchStart = () => {
+    setIsPressed(true);
+    onPlay?.(project);
+  };
+
+  const handleTouchEnd = () => {
+    setTimeout(() => setIsPressed(false), 150);
+  };
 
   return (
     <article
@@ -39,6 +50,8 @@ export default function ProjectCard({ project, onPlay }: ProjectCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onPlay?.(project)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Thumbnail */}
       {!imageError ? (
@@ -66,11 +79,11 @@ export default function ProjectCard({ project, onPlay }: ProjectCardProps) {
       {project.videoUrl && (
         <div
           className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
-            isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            isHovered || (isPressed && 'md:hidden') ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
           }`}
         >
-          <div className="w-16 h-16 rounded-full bg-foreground/90 flex items-center justify-center hover:bg-accent transition-colors">
-            <Play className="w-6 h-6 text-background ml-1" fill="currentColor" />
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-foreground/90 flex items-center justify-center hover:bg-accent transition-colors min-h-[3rem] min-w-[3rem] sm:min-h-[5rem] sm:min-w-[5rem]">
+            <Play className="w-6 h-6 sm:w-7 sm:h-7 text-background ml-1" fill="currentColor" />
           </div>
         </div>
       )}

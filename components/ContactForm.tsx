@@ -61,7 +61,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm text-secondary">
             Name
@@ -71,7 +71,7 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
-            className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors"
+            className="w-full px-4 py-3 min-h-[3rem] bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors text-base"
             placeholder="Your name"
           />
         </div>
@@ -84,7 +84,7 @@ export default function ContactForm() {
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors"
+            className="w-full px-4 py-3 min-h-[3rem] bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors text-base"
             placeholder="your@email.com"
           />
         </div>
@@ -97,7 +97,7 @@ export default function ContactForm() {
         <select
           id="project-type"
           name="project-type"
-          className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors appearance-none cursor-pointer"
+          className="w-full px-4 py-3 min-h-[3rem] bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors appearance-none cursor-pointer text-base"
         >
           <option value="">Select a project type</option>
           <option value="commercial">Commercial</option>
@@ -118,7 +118,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors resize-none"
+          className="w-full px-4 py-3 min-h-[3rem] bg-muted border border-border rounded-lg focus:outline-hidden focus:border-accent transition-colors resize-none text-base"
           placeholder="Tell me about your project..."
         />
       </div>

@@ -181,7 +181,7 @@ export default function Work() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`filter-btn px-5 py-2 text-sm uppercase tracking-wider transition-all duration-300 ${
+                className={`filter-btn min-h-[3rem] min-w-[3.5rem] px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 ${
                   activeCategory === category
                     ? 'bg-foreground text-background'
                     : 'bg-transparent text-secondary border border-border hover:border-foreground hover:text-foreground'

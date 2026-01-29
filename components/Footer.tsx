@@ -60,14 +60,14 @@ export default function Footer() {
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center border border-border rounded-full hover:border-accent hover:text-accent transition-colors"
-                    aria-label={social.label}
-                  >
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 flex items-center justify-center border border-border rounded-full hover:border-accent hover:text-accent transition-colors"
+                aria-label={social.label}
+              >
                     <Icon className="w-4 h-4" />
                   </a>
                 );

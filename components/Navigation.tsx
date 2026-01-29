@@ -73,7 +73,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden relative z-50 p-2 -mr-2"
+            className="md:hidden relative z-50 p-4 -mr-4 min-h-[3rem] min-w-[3rem] flex items-center justify-center"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
@@ -92,8 +92,8 @@ export default function Navigation() {
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <nav className="flex flex-col items-center justify-center h-full">
-          <ul className="flex flex-col items-center gap-8">
+        <nav className="flex flex-col items-center justify-center h-full px-4">
+          <ul className="flex flex-col items-center gap-6">
             {navLinks.map((link, index) => (
               <li
                 key={link.href}
@@ -106,7 +106,7 @@ export default function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className={`text-3xl font-serif tracking-wide transition-colors hover:text-accent ${
+                  className={`text-2xl font-serif tracking-wide transition-colors hover:text-accent py-2 px-4 rounded-lg hover:bg-muted/50 ${
                     pathname === link.href ? 'text-accent' : 'text-foreground'
                   }`}
                   onClick={closeMenu}

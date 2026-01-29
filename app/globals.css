@@ -166,48 +166,59 @@ img, video {
 }
 
 @layer components {
-  /* Button styles */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.875rem 2rem;
-    background: var(--foreground);
-    color: var(--background);
-    font-weight: 500;
-    font-size: 0.875rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-  }
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem; /* 48px minimum touch target */
+  padding: 0.875rem 2rem;
+  background: var(--foreground);
+  color: var(--background);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
 
-  .btn-primary:hover {
-    background: var(--accent);
-    transform: translateY(-2px);
-  }
+.btn-primary:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
 
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem; /* 48px minimum touch target */
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--foreground);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Mobile touch targets */
+@media (max-width: 768px) {
+  .btn-primary,
   .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.875rem 2rem;
-    background: transparent;
-    color: var(--foreground);
-    font-weight: 500;
-    font-size: 0.875rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    min-height: 3.5rem; /* 56px for better mobile touch */
+    padding: 1rem 2rem;
   }
-
-  .btn-secondary:hover {
-    border-color: var(--foreground);
-    background: rgba(255, 255, 255, 0.05);
-  }
+}
   
   .fade-in.animate {
     transition: opacity 0.8s ease, transform 0.8s ease;

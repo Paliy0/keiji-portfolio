@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Play } from 'lucide-react';
 
 interface HeroProps {
@@ -27,19 +28,32 @@ export default function Hero({
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
+        {/* Mobile: Show poster image only */}
+        <div className="md:hidden absolute inset-0">
+          <Image
+            src="/images/hero-poster.jpg"
+            alt="Hero background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 video-overlay" />
+        </div>
+        
+        {/* Desktop: Show video */}
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          className="hidden md:block w-full h-full object-cover"
           poster="/images/hero-poster.jpg"
         >
           <source src="/videos/hero-reel.mp4" type="video/mp4" />
         </video>
         {/* Overlay */}
-        <div className="absolute inset-0 video-overlay" />
+        <div className="md:block hidden absolute inset-0 video-overlay" />
       </div>
 
       {/* Location Badge */}
@@ -53,10 +67,10 @@ export default function Hero({
       {/* Content */}
       <div className="relative z-10 container flex items-center justify-center">
         <div className="max-w-4xl text-center space-y-8">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-tight text-balance">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif leading-tight text-balance">
             {title}
           </h1>
-          <p className="text-lg md:text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
             {subtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

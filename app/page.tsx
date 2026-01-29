@@ -118,13 +118,13 @@ export default function Home() {
       <Hero />
 
       {/* Intro Section */}
-      <section ref={introRef} className="py-24 md:py-32 lg:py-40">
+      <section ref={introRef} className="py-16 sm:py-24 md:py-32 lg:py-40">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center intro-text">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 text-balance">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-6 text-balance">
               Creating Visual Stories That Resonate
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-secondary leading-relaxed mb-8 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-secondary leading-relaxed mb-8 max-w-3xl mx-auto">
               I&apos;m Keiji, a filmmaker and visual storyteller with a passion for
               crafting narratives that move people. With over a decade of
               experience in film production, I&apos;ve had the privilege of bringing
@@ -140,28 +140,28 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section ref={servicesRef} className="py-24 md:py-32 lg:py-40 bg-muted/30">
+      <section ref={servicesRef} className="py-16 sm:py-24 md:py-32 lg:py-40 bg-muted/30">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <span className="text-accent text-sm uppercase tracking-widest">
               What I Do
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mt-4 text-balance">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mt-4 text-balance">
               Services & Expertise
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 sm:gap-6 md:gap-8">
             {services.map((service) => {
               const Icon = service.icon;
               return (
                 <div
                   key={service.title}
-                  className="service-card p-8 border border-border bg-background hover:border-accent transition-colors duration-300 items-center text-center"
+                  className="service-card p-6 sm:p-8 border border-border bg-background hover:border-accent transition-colors duration-300 items-center text-center"
                 >
                   <Icon className="w-10 h-10 text-accent mb-6" />
-                  <h3 className="text-xl md:text-2xl font-serif mb-4">{service.title}</h3>
-                  <p className="text-base md:text-lg text-secondary leading-relaxed">{service.description}</p>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-serif mb-4">{service.title}</h3>
+                  <p className="text-sm sm:text-base md:text-lg text-secondary leading-relaxed">{service.description}</p>
                 </div>
               );
             })}
@@ -170,14 +170,14 @@ export default function Home() {
       </section>
 
       {/* Featured Work Section */}
-      <section ref={projectsRef} className="py-24 md:py-32 lg:py-40">
+      <section ref={projectsRef} className="py-16 sm:py-24 md:py-32 lg:py-40">
         <div className="container">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 sm:mb-16 gap-6">
             <div>
               <span className="text-accent text-sm uppercase tracking-widest">
                 Featured Work
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mt-4 text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mt-4 text-balance">
                 Selected Projects
               </h2>
             </div>
@@ -190,7 +190,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 lg:gap-8">
             {featuredProjects.map((project) => (
               <Link
                 key={project.id}
@@ -226,13 +226,13 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 lg:py-40 bg-muted/30">
+      <section className="py-16 sm:py-24 md:py-32 lg:py-40 bg-muted/30">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-6 text-balance">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-serif mb-6 text-balance">
               Let&apos;s Create Something Beautiful Together
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-secondary leading-relaxed mb-8">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-secondary leading-relaxed mb-8">
               Have a project in mind? I&apos;d love to hear about it. Let&apos;s discuss
               how we can bring your vision to life.
             </p>
