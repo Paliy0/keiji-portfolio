@@ -197,7 +197,7 @@ export default function Home() {
                 href="/work"
                 className="project-item group relative aspect-[4/3] overflow-hidden bg-muted"
               >
-                <ProjectImage
+                <Image
                   src={project.thumbnail}
                   alt={project.title}
                   fill
